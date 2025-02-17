@@ -12,3 +12,11 @@ document.getElementById("contactForm").addEventListener("submit", function(event
       alert("Please fill in all fields.");
   }
 });
+document.querySelectorAll(".contact-info p").forEach((item) => {
+  item.addEventListener("click", function () {
+      let text = this.innerText.split(": ")[1]; // Get the contact info text
+      navigator.clipboard.writeText(text).then(() => {
+          alert("Copied: " + text);
+      });
+  });
+});
